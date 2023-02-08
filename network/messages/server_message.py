@@ -1,5 +1,5 @@
-import utils.WireEncoding
-import utils.Base64Encoding
+import utils.wire_encoding
+import utils.base_64_encoding
 
 
 class ServerMessage:
@@ -21,7 +21,7 @@ class ServerMessage:
             self.body.extend(data)
 
     def append_int32(self, i):
-        self.append_bytes(utils.WireEncoding.encode_int32(i))
+        self.append_bytes(utils.wire_encoding.encode_int32(i))
 
     def append_raw_int32(self, i):
         self.append_string(str(i), encoding='ASCII')
@@ -45,7 +45,7 @@ class ServerMessage:
 
     def get_bytes(self):
         buffer = [0] * (self.length() + 3)
-        buffer2 = utils.Base64Encoding.encode_int32(self.message_id, 2)
+        buffer2 = utils.base_64_encoding.encode_int32(self.message_id, 2)
         buffer[0] = buffer2[0]
         buffer[1] = buffer2[1]
         for i in range(self.length()):

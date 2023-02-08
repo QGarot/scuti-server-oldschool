@@ -1,5 +1,5 @@
-from utils.Base64Encoding import decode_int32
-import utils.WireEncoding
+from utils.base_64_encoding import decode_int32
+import utils.wire_encoding
 
 
 class ClientMessage:
@@ -59,7 +59,7 @@ class ClientMessage:
             return 0
 
         bzData = self.plain_read_bytes(6)
-        num2 = utils.WireEncoding.decode_int32(bzData)
+        num2 = utils.wire_encoding.decode_int32(bzData)
         self.pointer = self.pointer + 6
         return num2
 

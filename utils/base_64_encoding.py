@@ -11,7 +11,7 @@ def encode_int32(i: int, num_bytes: int) -> bytes:
     return bytes(bz_res)
 
 
-def decode_int32(bz_data: bytearray) -> int:
+def decode_int32(bz_data) -> int:
     """
     :param bz_data:
     :return:

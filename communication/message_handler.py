@@ -1,10 +1,10 @@
 import utils.logger
-from communication.incoming.handshake.EventLogMessageEvent import EventLogMessageEvent
-from communication.incoming.handshake.SSOTicketMessageEvent import SSOTicketMessageEvent
-from communication.incoming.rooms.CanCreateRoomMessageEvent import CanCreateRoomMessageEvent
-from communication.incoming.rooms.MyRoomsSearchMessageEvent import MyRoomsSearchMessageEvent
+from communication.incoming.handshake.event_log_message_event import EventLogMessageEvent
+from communication.incoming.handshake.sso_ticket_message_event import SSOTicketMessageEvent
+from communication.incoming.rooms.can_create_room_message_event import CanCreateRoomMessageEvent
+from communication.incoming.rooms.my_room_search_message_event import MyRoomsSearchMessageEvent
 from game.user.user import User
-from communication.incoming.handshake.InitCryptoMessageEvent import InitCryptoMessageEvent
+from communication.incoming.handshake.init_crypto_message_event import InitCryptoMessageEvent
 from network.messages.client_message import ClientMessage
 
 incoming = {
