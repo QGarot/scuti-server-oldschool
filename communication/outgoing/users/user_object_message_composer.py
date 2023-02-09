@@ -1,11 +1,12 @@
 from communication.outgoing.message_composer import MessageComposer
 from network.messages.server_message import ServerMessage
+import communication.outgoing.header
 
 
 class UserObjectMessageComposer(MessageComposer):
 
     def __init__(self):
-        self.response = ServerMessage(5)
+        self.response = ServerMessage(communication.outgoing.header.UserObjectMessageComposer)
 
     def compose(self):
         self.response.append_string_with_break("1")
