@@ -9,7 +9,7 @@ class CanCreateRoomMessageComposer(MessageComposer):
 
     def compose(self):
         self.response.append_int32(0)
-        self.response.append_int32(5000)
+        self.response.append_int32(1)
 
     def get_response(self):
         return self.response

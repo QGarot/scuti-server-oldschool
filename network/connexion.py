@@ -1,4 +1,4 @@
-from game.user.user import User
+from game.users.user import User
 from asyncore import dispatcher_with_send
 from utils.base_64_encoding import decode_int32
 from network.messages.client_message import ClientMessage

@@ -4,7 +4,7 @@ from communication.outgoing.users.credit_balance_message_composer import CreditB
 from communication.outgoing.users.motd_notification_message_composer import MOTDNotificationMessageComposer
 from communication.outgoing.handshake.session_params_message_composer import SessionParamsMessageComposer
 from communication.outgoing.users.user_object_message_composer import UserObjectMessageComposer
-from game.user.user import User
+from game.users.user import User
 from network.messages.client_message import ClientMessage
 
 

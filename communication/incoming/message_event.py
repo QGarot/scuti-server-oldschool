@@ -1,4 +1,4 @@
-from game.user.user import User
+from game.users.user import User
 from network.messages.client_message import ClientMessage
 
 

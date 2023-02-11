@@ -6,4 +6,6 @@ GuestRoomSearchResultMessageComposer = 451
 CreditBalanceMessageComposer = 6
 MOTDNotifMessageComposer = 810
 UserObjectMessageComposer = 5
+FlatCreatedMessageComposer = 59
+HeightMapMessageComposer = 31
 
