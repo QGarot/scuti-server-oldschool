@@ -19,6 +19,7 @@ AuthenticationOKMessageComposer = 3
 CanCreateRoomMessageComposer = int(0x0200)
 GuestRoomSearchResultMessageComposer = 451
 CreditBalanceMessageComposer = 6
+HabboActivityPointNotificationMessageComposer = 438
 MOTDNotifMessageComposer = 810
 UserObjectMessageComposer = 5
 FlatCreatedMessageComposer = 59
