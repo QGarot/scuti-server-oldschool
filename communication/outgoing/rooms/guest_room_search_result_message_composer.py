@@ -13,7 +13,7 @@ class GuestRoomSearchResultMessageComposer(MessageComposer):
         self.response.append_int32(1)
 
         for i in range(1):
-            self.response.append_int32(3)
+            self.response.append_int32(556)
             self.response.append_boolean(True)  # Event?
             self.response.append_string_with_break("jeu du celib " + str(i))  # Room name
             self.response.append_string_with_break("Tig3r")  # Owner name
@@ -41,6 +41,8 @@ class GuestRoomSearchResultMessageComposer(MessageComposer):
 
             self.response.append_boolean(True)  # allow pets
             self.response.append_boolean(False)  # display room entry ad
+
+        print("GuestRoomSearchResultMessageComposer send!")
 
     def get_response(self):
         return self.response

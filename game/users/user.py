@@ -6,5 +6,12 @@ class User:
         self.socket = socket
 
     def send(self, server_message: MessageComposer) -> None:
+        """
+        Compose and send a pack to the client
+        :param server_message:
+        :return:
+        """
         server_message.compose()
-        self.socket.send(bytearray(server_message.get_response().get_bytes()))
+        buff = server_message.get_response().get_bytes()
+        self.socket.send(bytearray(buff))
+        print(type(server_message).__name__ + " sent!")

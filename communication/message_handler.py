@@ -1,8 +1,7 @@
 import utils.logger
-from communication.incoming.handshake.event_log_message_event import EventLogMessageEvent
 from communication.incoming.handshake.sso_ticket_message_event import SSOTicketMessageEvent
-from communication.incoming.rooms.can_create_room_message_event import CanCreateRoomMessageEvent
-from communication.incoming.rooms.create_flat_message_event import CreateFlatMessageEvent
+from communication.incoming.rooms.get_furniture_aliases_message_event import GetFurnitureAliasesMessageEvent
+from communication.incoming.rooms.get_room_entry_data_message_composer import GetRoomEntryDataMessageEvent
 from communication.incoming.rooms.my_room_search_message_event import MyRoomsSearchMessageEvent
 from communication.incoming.rooms.open_flat_connection_message_event import OpenFlatConnectionMessageEvent
 from game.users.user import User
@@ -12,20 +11,19 @@ from network.messages.client_message import ClientMessage
 incoming = {
     206: InitCryptoMessageEvent(),
     415: SSOTicketMessageEvent(),
-    482: EventLogMessageEvent(),
     434: MyRoomsSearchMessageEvent(),
-    387: CanCreateRoomMessageEvent(),
-    29: CreateFlatMessageEvent(),
-    391: OpenFlatConnectionMessageEvent()
+    391: OpenFlatConnectionMessageEvent(),
+    215: GetFurnitureAliasesMessageEvent(),
+    390: GetRoomEntryDataMessageEvent(),
 }
 
 
 def handle(user: User, header: int, client_message: ClientMessage) -> None:
     """
     Handle a client message from users connection
-    :param user:
+    :param user: client
     :param header:
-    :param client_message:
+    :param client_message: packet to analyse
     :return:
     """
     if header in incoming:

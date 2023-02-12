@@ -7,7 +7,7 @@ class ClientPrivateRoomMessageComposer(MessageComposer):
         self.response = ServerMessage(166)
         self.room_id = room_id
 
-    def get_response(self) -> ServerMessage:
+    def get_response(self):
         return self.response
 
     def compose(self):

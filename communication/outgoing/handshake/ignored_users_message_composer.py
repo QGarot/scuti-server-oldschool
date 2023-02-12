@@ -3,12 +3,12 @@ from network.messages.server_message import ServerMessage
 import communication.outgoing.header
 
 
-class SessionParamsMessageComposer(MessageComposer):
+class IgnoredUsersMessageComposer(MessageComposer):
     def __init__(self):
-        self.response = ServerMessage(communication.outgoing.header.SessionParamsMessageComposer)
-
-    def compose(self):
-        self.response.append_int32(0)
+        self.response = ServerMessage(communication.outgoing.header.IgnoredUsersMessageComposer)
 
     def get_response(self):
         return self.response
+
+    def compose(self):
+        pass

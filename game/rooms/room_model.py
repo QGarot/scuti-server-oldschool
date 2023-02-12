@@ -1,4 +1,12 @@
+
+# Utils
 def generate_array(x: int, y: int) -> list:
+    """
+    Generate a matrix filled with 0
+    :param x: rows
+    :param y: lines
+    :return:
+    """
     res = []
     for i in range(y):
         res.append([])
@@ -29,7 +37,11 @@ class RoomModel:
 
         self.generate()
 
-    def generate(self):
+    def generate(self) -> None:
+        """
+        Generate square_state and square_floor_height
+        :return:
+        """
         self.height_map = self.height_map.lower()
         tmp_height_map = self.height_map.split(chr(13))
         self.map_size_x = len(tmp_height_map[0])
@@ -53,6 +65,9 @@ class RoomModel:
         self.square_floor_height[self.door_y][self.door_x] = self.door_z
 
     def string_builder(self) -> str:
+        """
+        :return: height map
+        """
         res = ""
         arr = self.height_map.split("\r\n")
         for i in range(len(arr)):
@@ -62,7 +77,11 @@ class RoomModel:
                 res = res + "\r\n"
         return res
 
-    def floor_height_map(self, packet):
+    def floor_height_map(self, packet) -> None:
+        """
+        :param packet:
+        :return: floor height map
+        """
         arr = self.height_map.split(chr(13))
         for i in range(self.map_size_y):
             if i > 0:
