@@ -1,5 +1,7 @@
 import utils.logger
+from communication.incoming.handshake.info_retrieve_message_event import InfoRetrieveMessageEvent
 from communication.incoming.handshake.sso_ticket_message_event import SSOTicketMessageEvent
+from communication.incoming.rooms.chat_message_event import ChatMessageEvent
 from communication.incoming.rooms.get_furniture_aliases_message_event import GetFurnitureAliasesMessageEvent
 from communication.incoming.rooms.get_room_entry_data_message_composer import GetRoomEntryDataMessageEvent
 from communication.incoming.rooms.my_room_search_message_event import MyRoomsSearchMessageEvent
@@ -15,6 +17,8 @@ incoming = {
     391: OpenFlatConnectionMessageEvent(),
     215: GetFurnitureAliasesMessageEvent(),
     390: GetRoomEntryDataMessageEvent(),
+    7: InfoRetrieveMessageEvent(),
+    52: ChatMessageEvent(),
 }
 
 

@@ -11,15 +11,15 @@ class UserObjectMessageComposer(MessageComposer):
     def compose(self):
         self.response.append_string_with_break("1")
         self.response.append_string_with_break("Tig3r")
-        self.response.append_string_with_break("hr-115-42.hd-195-19.ch-3030-82.lg-275-1408.fa-1201.ca-1804-64")
+        self.response.append_string_with_break("hr-115-42.hd-190-1.ch-215-62.lg-285-91.sh-290-62")
         self.response.append_string_with_break("M")
-        self.response.append_string_with_break("")
+        self.response.append_string_with_break("cc dsl")
         self.response.append_string_with_break("Tig3r")
-        self.response.append_int32(0)
+        self.response.append_boolean(False)
         self.response.append_int32(10)
         self.response.append_int32(10)
         self.response.append_int32(10)
-        self.response.append_boolean(True)
+        self.response.append_boolean(False)
 
     def get_response(self):
         return self.response
