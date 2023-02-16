@@ -11,7 +11,8 @@ class UserObjectMessageComposer(MessageComposer):
     def compose(self):
         self.response.append_string_with_break("1")
         self.response.append_string_with_break("Tig3r")
-        self.response.append_string_with_break("hr-115-42.hd-190-1.ch-215-62.lg-285-91.sh-290-62")
+        self.response.append_string_with_break("sh-290-64.ca-3292-63.ch-215-83.lg-275-83.hr-893-45.fa-1201-63.ha-3054"
+                                               "-91-110.hd-180-1383")
         self.response.append_string_with_break("M")
         self.response.append_string_with_break("cc dsl")
         self.response.append_string_with_break("Tig3r")

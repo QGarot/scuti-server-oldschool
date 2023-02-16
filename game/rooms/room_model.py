@@ -32,70 +32,49 @@ class RoomModel:
         self.map_size_x = None
         self.map_size_y = None
 
-        self.square_state = None
-        self.square_floor_height = None
+        self.tile_states = None
+        self.tile_heights = None
 
-        self.generate()
+        self.parse()
 
-    def generate(self) -> None:
+    def parse(self) -> None:
         """
-        Generate square_state and square_floor_height
+        Parse height map, generate tiles state and tiles heights
         :return:
         """
-        self.height_map = self.height_map.lower()
-        tmp_height_map = self.height_map.split(chr(13))
-        self.map_size_x = len(tmp_height_map[0])
-        self.map_size_y = len(tmp_height_map)
+        lines = self.height_map.split("\r\n")
+        self.map_size_y = len(lines)
+        self.map_size_x = len(lines[0])
+        self.tile_states = generate_array(self.map_size_x, self.map_size_y)
+        self.tile_heights = generate_array(self.map_size_x, self.map_size_y)
 
-        self.square_state = generate_array(self.map_size_x, self.map_size_y)
-        self.square_floor_height = generate_array(self.map_size_x, self.map_size_y)
-
+        temporary_height_map = ""
         for y in range(self.map_size_y):
-            if y > 0:
-                tmp_height_map[y] = tmp_height_map[y][1:]
-
+            line = lines[y]
             for x in range(self.map_size_x):
-                square = tmp_height_map[y][x].strip().lower()
-                if square == "x":
-                    self.square_state[y][x] = BLOCKED
+                tile = line[x]
+
+                if tile.isdigit():
+                    tile = int(tile)
+                    self.tile_states[y][x] = OPEN
+                    self.tile_heights[y][x] = tile
                 else:
-                    self.square_state[y][x] = OPEN
-                    self.square_floor_height[y][x] = float(square)
+                    self.tile_states[y][x] = BLOCKED
+                    self.tile_heights[y][x] = 0
 
-        self.square_floor_height[self.door_y][self.door_x] = self.door_z
+                if x == self.door_x and y == self.door_y:
+                    self.tile_states[y][x] = OPEN
+                    self.tile_heights[y][x] = self.door_z
 
-    def string_builder(self) -> str:
-        """
-        :return: height map
-        """
-        res = ""
-        arr = self.height_map.split("\r\n")
-        for i in range(len(arr)):
-            text = arr[i]
-            if text != "":
-                res = res + text
-                res = res + "\r\n"
-        return res
+                temporary_height_map += str(tile)
 
-    def floor_height_map(self, packet) -> None:
-        """
-        :param packet:
-        :return: floor height map
-        """
-        arr = self.height_map.split(chr(13))
-        for i in range(self.map_size_y):
-            if i > 0:
-                arr[i] = arr[i][1:]
-            for j in range(self.map_size_x):
-                text = arr[i][j].strip().lower()
-                if self.door_x == j and self.door_y == i:
-                    text = str(int(self.door_z))
-                packet.append_string(text)
-            packet.append_string(chr(13))
+            temporary_height_map += chr(13)
+
+        self.height_map = temporary_height_map
 
 
-hp = "xxxxxxxxxxxx\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxxxxxxxxxx\r\nxxxxxxxxxxxx"
-model = RoomModel("model_a", 3, 5, 0, 2, hp)
+hp_a = "xxxxxxxxxxxx\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxx00000000\r\nxxxxxxxxxxxx\r\nxxxxxxxxxxxx"
+model_a = RoomModel("model_a", 3, 5, 0, 2, hp_a)
 
-
-
+hp_b = "xxxxxxxxxxxxxxxxxxx\r\nxxxxxxx222222222222\r\nxxxxxxx222222222222\r\nxxxxxxx222222222222\r\nxxxxxxx222222222222\r\nxxxxxxx222222222222\r\nxxxxxxx222222222222\r\nxxxxxxx22222222xxxx\r\nxxxxxxx11111111xxxx\r\nx222221111111111111\r\nx222221111111111111\r\nx222221111111111111\r\nx222221111111111111\r\nx222221111111111111\r\nx222221111111111111\r\nx222221111111111111\r\nx222221111111111111\r\nx2222xx11111111xxxx\r\nx2222xx00000000xxxx\r\nx2222xx000000000000\r\nx2222xx000000000000\r\nx2222xx000000000000\r\nx2222xx000000000000\r\n22222xx000000000000\r\nx2222xx000000000000\r\nxxxxxxxxxxxxxxxxxxx"
+model_b = RoomModel("model_p", 0, 23, 2, 2, hp_b)

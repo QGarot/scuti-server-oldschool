@@ -6,7 +6,7 @@ from communication.incoming.rooms.get_furniture_aliases_message_event import Get
 from communication.incoming.rooms.get_room_entry_data_message_composer import GetRoomEntryDataMessageEvent
 from communication.incoming.rooms.my_room_search_message_event import MyRoomsSearchMessageEvent
 from communication.incoming.rooms.open_flat_connection_message_event import OpenFlatConnectionMessageEvent
-from communication.incoming.users.GetCreditsInfoEvent import GetCreditsInfoEvent
+from communication.incoming.users.get_credits_info_message_event import GetCreditsInfoEvent
 from game.users.user import User
 from communication.incoming.handshake.init_crypto_message_event import InitCryptoMessageEvent
 from network.messages.client_message import ClientMessage
