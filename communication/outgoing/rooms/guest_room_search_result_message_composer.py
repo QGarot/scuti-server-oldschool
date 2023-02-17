@@ -42,7 +42,5 @@ class GuestRoomSearchResultMessageComposer(MessageComposer):
             self.response.append_boolean(True)  # allow pets
             self.response.append_boolean(False)  # display room entry ad
 
-        print("GuestRoomSearchResultMessageComposer send!")
-
     def get_response(self):
         return self.response

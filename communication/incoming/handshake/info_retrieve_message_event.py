@@ -7,4 +7,4 @@ from network.messages.client_message import ClientMessage
 class InfoRetrieveMessageEvent(MessageEvent):
     @staticmethod
     def handle(user: User, request: ClientMessage) -> None:
-        user.send(UserObjectMessageComposer())
+        user.send(UserObjectMessageComposer(user.get_details()))

@@ -1,26 +1,29 @@
 from communication.outgoing.message_composer import MessageComposer
+from game.users.user import UserDetails
 from network.messages.server_message import ServerMessage
 import communication.outgoing.header
 
 
 class UserObjectMessageComposer(MessageComposer):
 
-    def __init__(self):
+    def __init__(self, user_details: UserDetails):
         self.response = ServerMessage(communication.outgoing.header.UserObjectMessageComposer)
+        self.user_details = user_details
 
     def compose(self):
-        self.response.append_string_with_break("1")
-        self.response.append_string_with_break("Tig3r")
-        self.response.append_string_with_break("sh-290-64.ca-3292-63.ch-215-83.lg-275-83.hr-893-45.fa-1201-63.ha-3054"
-                                               "-91-110.hd-180-1383")
-        self.response.append_string_with_break("M")
-        self.response.append_string_with_break("cc dsl")
-        self.response.append_string_with_break("Tig3r")
-        self.response.append_boolean(False)
-        self.response.append_int32(10)
-        self.response.append_int32(10)
-        self.response.append_int32(10)
-        self.response.append_boolean(False)
+        self.response.append_string_with_break(str(self.user_details.get_id()))  # id
+        self.response.append_string_with_break(self.user_details.get_username())  # username
+        self.response.append_string_with_break(self.user_details.get_figure())  # look
+        self.response.append_string_with_break(self.user_details.get_sex())  # sex
+        self.response.append_string_with_break(self.user_details.get_motto())  # custom data (description)
+        self.response.append_string_with_break(self.user_details.get_username())  # real name
+        self.response.append_int32(1)
+
+        # TODO: work on respects
+        self.response.append_int32(10)  # respect total
+        self.response.append_int32(10)  # respect left
+        self.response.append_int32(10)  # pet respect left
+        self.response.append_boolean(False)  # stream publishing allowed
 
     def get_response(self):
         return self.response

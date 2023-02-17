@@ -9,7 +9,7 @@ from network.messages.client_message import ClientMessage
 class GetCreditsInfoEvent(MessageEvent):
     @staticmethod
     def handle(user: User, request: ClientMessage) -> None:
-        user.send(CreditBalanceMessageComposer(500))
-        user.send(HabboActivityPointNotificationMessageComposer(0, 10))
-        user.send(HabboActivityPointNotificationMessageComposer(4, 5))
+        user.send(CreditBalanceMessageComposer(user.get_details().get_credits()))
+        user.send(HabboActivityPointNotificationMessageComposer(0, user.get_details().get_pixels()))
+        user.send(HabboActivityPointNotificationMessageComposer(4, user.get_details().get_shells()))
 

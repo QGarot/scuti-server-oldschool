@@ -8,4 +8,4 @@ class ChatMessageEvent(MessageEvent):
     @staticmethod
     def handle(user: User, request: ClientMessage) -> None:
         message = request.pop_fixed_string()
-        user.send(ChatMessageComposer(user_id=1, message=message))
+        user.send(ChatMessageComposer(user_id=user.get_details().get_id(), message=message))

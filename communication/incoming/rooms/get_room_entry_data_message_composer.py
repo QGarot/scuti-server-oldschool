@@ -13,6 +13,6 @@ class GetRoomEntryDataMessageEvent(MessageEvent):
     def handle(user: User, request: ClientMessage):
         user.send(HeightMapMessageComposer())
         user.send(FloorHeightMapMessageComposer())
-        user.send(UsersMessageComposer())
+        user.send(UsersMessageComposer(user.get_details()))
         user.send(RoomEntryInfoMessageComposer())
         user.send(RoomVisualizationSettingsComposer())
