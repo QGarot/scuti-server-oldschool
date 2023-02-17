@@ -99,6 +99,3 @@ class Database:
         self.connection.commit()
 
         self.close_connection()
-
-
-# db = Database("localhost", "root", "", "scuti")

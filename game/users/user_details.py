@@ -21,7 +21,7 @@ class UserDetails:
         self.daily_respect_points = 3
 
     def fill(self, id: int, username: str, email: str, figure: str, motto: str, sex: str, sso_ticket: str, rank: int,
-             credits: int, pixels: int, shells: int, respect: int, daily_respect_points: int) -> None:
+             credits: int, pixels: int = 0, shells: int = 0, respect: int = 0, daily_respect_points: int = 3) -> None:
         """
         Fill UserDetails instance with user data
         :param id:
