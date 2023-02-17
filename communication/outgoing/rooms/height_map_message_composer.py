@@ -1,6 +1,6 @@
 from communication.outgoing.message_composer import MessageComposer
 from network.messages.server_message import ServerMessage
-from game.rooms.room_model import model_b as model
+from game.rooms.models.room_model import model_b as model
 import communication.outgoing.header
 
 
