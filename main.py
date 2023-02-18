@@ -1,5 +1,6 @@
 from database.database import Database
 from game.rooms.models.room_model_manager import RoomModelManager
+from game.rooms.room_manager import RoomManager
 from game.users.user_manager import UserManager
 from network.server import Server
 
@@ -15,6 +16,10 @@ UserManager.get_instance().set_dao(db)
 RoomModelManager.get_instance()
 RoomModelManager.get_instance().set_dao(db)
 RoomModelManager.get_instance().load_models()
+
+RoomManager.get_instance()
+RoomManager.get_instance().set_dao(db)
+RoomManager.get_instance().load_rooms()
 
 # ~~~~~~~ Server ~~~~~~~
 server = Server("127.0.0.1", 35000)

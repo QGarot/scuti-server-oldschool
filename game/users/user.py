@@ -7,6 +7,12 @@ class User:
         self.socket = socket
         self.details = UserDetails()
 
+        # TODO: create a RoomUser class! it's better < RoomEntity
+        self.room_id = None
+        self.pos_x = None
+        self.pos_y = None
+        self.pos_z = None
+
     def send(self, server_message: MessageComposer) -> None:
         """
         Compose and send a pack to the client

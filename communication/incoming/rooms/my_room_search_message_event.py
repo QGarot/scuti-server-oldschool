@@ -7,4 +7,4 @@ from network.messages.client_message import ClientMessage
 class MyRoomsSearchMessageEvent(MessageEvent):
     @staticmethod
     def handle(user: User, request: ClientMessage):
-        user.send(GuestRoomSearchResultMessageComposer())
+        user.send(GuestRoomSearchResultMessageComposer(user.get_details().get_username()))

@@ -56,3 +56,13 @@ class RoomModelManager:
         """
         for model in self.get_room_model_dao().get_models():
             self.add_model(model)
+
+    def get_model_by_name(self, name: str) -> RoomModel | None:
+        """
+        :param name:
+        :return: get a model with its name
+        """
+        for model in self.get_models():
+            if model.name == name:
+                return model
+        return None
