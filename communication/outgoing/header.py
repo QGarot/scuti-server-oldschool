@@ -1,5 +1,6 @@
 # TODO: add outgoing headers
 
+OfficialRoomsMessageComposer = 450
 ChatMessageComposer = 24
 YouAreOwnerMessageComposer = 47
 UsersMessageComposer = 28
