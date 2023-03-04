@@ -17,7 +17,7 @@ class UserObjectMessageComposer(MessageComposer):
         self.response.append_string_with_break(self.user_details.get_sex())  # sex
         self.response.append_string_with_break(self.user_details.get_motto())  # custom data (description)
         self.response.append_string_with_break(self.user_details.get_username())  # real name
-        self.response.append_int32(1)
+        self.response.append_boolean(False)
 
         # TODO: work on respects
         self.response.append_int32(10)  # respect total
