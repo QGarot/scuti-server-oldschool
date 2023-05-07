@@ -21,9 +21,9 @@ class GuestRoomSearchResultMessageComposer(MessageComposer):
             self.response.append_string_with_break(room.get_room_data().get_caption())  # Room name
             self.response.append_string_with_break(room.get_room_data().get_owner_name())  # Owner name
             self.response.append_int32(room.get_room_data().get_state())  # Access: open (0), locked (1), password (2)
-            self.response.append_int32(49)  # Number of people in the room
-            self.response.append_int32(50)  # Capacity
-            self.response.append_string_with_break(room.get_room_data().get_description()) # Description
+            self.response.append_int32(room.get_room_data().get_users_now())  # Number of people in the room
+            self.response.append_int32(room.get_room_data().get_users_max())  # Capacity
+            self.response.append_string_with_break(room.get_room_data().get_description())  # Description
             self.response.append_int32(0)  # idk
             self.response.append_boolean(True)  # Is trading allowed ?
             self.response.append_int32(room.get_room_data().get_score())  # Rating

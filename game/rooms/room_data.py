@@ -7,6 +7,8 @@ class RoomData:
         self.description = ""
         self.category = 0
         self.state = "open"
+        self.users_now = 0
+        self.users_max = 0
         self.model_name = "model_a"
         self.score = 0
         self.tags = ""
@@ -19,7 +21,7 @@ class RoomData:
         self.landscape = ""
 
     def fill(self, id: int, room_type: str, caption: str, owner_name: str, description: str, category: int,
-             state: str, model_name: str, score: int, tags: str, icon_bg: int, icon_fg: int, icon_items: str,
+             state: str, users_now: int, users_max: int, model_name: str, score: int, tags: str, icon_bg: int, icon_fg: int, icon_items: str,
              password: str, wallpaper: str, floor: str, landscape: str) -> None:
         self.id = id
         self.room_type = room_type
@@ -28,6 +30,8 @@ class RoomData:
         self.description = description
         self.category = category
         self.state = state
+        self.users_now = users_now
+        self.users_max = users_max
         self.model_name = model_name
         self.score = score
         self.tags = tags
@@ -91,6 +95,18 @@ class RoomData:
             return 1
         else:
             return 2
+
+    def get_users_now(self) -> int:
+        """
+        :return: current number of users in this room
+        """
+        return self.users_now
+
+    def get_users_max(self) -> int:
+        """
+        :return: capacity of users in this room
+        """
+        return self.users_max
 
     def get_model(self) -> str:
         """
