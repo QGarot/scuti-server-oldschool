@@ -66,3 +66,11 @@ class RoomManager:
             if room.get_room_data().get_id() == id:
                 return room
         return None
+
+    def update_current_visitors_in_a_room(self, room_id: int) -> None:
+        room = self.get_room_by_id(room_id)
+        visitors_now = room.get_users_now()
+
+        self.get_room_dao().update_visitor(room_id, visitors_now)
+        room.get_room_data().set_visitors_now(visitors_now)
+

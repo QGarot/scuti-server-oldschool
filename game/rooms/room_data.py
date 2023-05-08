@@ -167,3 +167,6 @@ class RoomData:
         :return: landscape
         """
         return self.landscape
+
+    def set_visitors_now(self, visitors_now: int) -> None:
+        self.users_now = visitors_now

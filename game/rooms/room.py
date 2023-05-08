@@ -11,4 +11,5 @@ class Room:
     def get_room_data(self) -> RoomData:
         return self.room_data
 
-
+    def get_users_now(self) -> int:
+        return len(self.entity)

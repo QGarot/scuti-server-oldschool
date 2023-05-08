@@ -45,7 +45,7 @@ class Database:
         self.cursor = None
         self.connection = None
 
-    def get(self, sql: str):
+    def get(self, sql: str) -> []:
         self.prepare_db()
         self.cursor.execute(sql)
         result = self.cursor.fetchall()
@@ -69,7 +69,6 @@ class Database:
         attr_str = ""
         first = True
         for couple in attributes.items():
-            print(couple)
             if first:
                 attr_str = attr_str + couple[0] + " = '" + str(couple[1]) + "'"
                 first = False

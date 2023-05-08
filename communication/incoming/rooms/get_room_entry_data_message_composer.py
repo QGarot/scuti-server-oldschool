@@ -23,3 +23,7 @@ class GetRoomEntryDataMessageEvent(MessageEvent):
         # TODO: check rights
         user.send(RoomEntryInfoMessageComposer(room.get_room_data().is_private(), room.get_room_data().get_id(), True))
         user.send(RoomVisualizationSettingsComposer())
+
+        # Update current visitors in the room
+        room.entity.append(user)
+        RoomManager.get_instance().update_current_visitors_in_a_room(room.get_room_data().get_id())

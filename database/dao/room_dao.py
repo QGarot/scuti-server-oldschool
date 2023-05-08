@@ -18,3 +18,10 @@ class RoomDao:
             rooms.append(room)
 
         return rooms
+
+    def update_visitor(self, room_id: int, current_visitor_number: int) -> None:
+        """
+        :return:
+        """
+        self.db.update("rooms", {"users_now": current_visitor_number}, "id = " + str(room_id) + "")
+
