@@ -46,6 +46,12 @@ class UserManager:
         """
         return self.users
 
+    def get_connections(self) -> list[User]:
+        """
+        :return: list of clients
+        """
+        return self.connections
+
     def get_user_by_id(self, user_id: int) -> User | None:
         """
         :param user_id:
