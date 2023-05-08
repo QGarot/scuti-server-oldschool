@@ -1,15 +1,14 @@
-from game.users.user import User
 from asyncore import dispatcher_with_send
 from utils.base_64_encoding import decode_int32
 from network.messages.client_message import ClientMessage
 from communication.message_handler import handle
+from game.users.user_manager import UserManager
 
 
 class Connection(dispatcher_with_send):
 
-    def __init__(self, sock):
-        super().__init__(sock)
-        self.user = User(self.socket)
+    def new_session(self):
+        UserManager.get_instance().new_session(self)
 
     def handle_read(self) -> None:
         data = self.recv(1024)
@@ -21,6 +20,7 @@ class Connection(dispatcher_with_send):
             self.socket.sendall(policy.encode())
             print("Policy encode")
         try:
+            user = UserManager.get_instance().get_user_by_socket(self)
             if data[0] == 64:
                 pos = 0
                 msg_id = None
@@ -37,10 +37,8 @@ class Connection(dispatcher_with_send):
                         pos += 1
 
                 client_message = ClientMessage(msg_id, content)
-                handle(self.user, client_message.header, client_message)
+                handle(user, client_message.header, client_message)
+            else:
+                UserManager.get_instance().disconnect(user)
         except:
             pass
-
-    def handle_close(self) -> None:
-        print("Bye bye :(")
-        self.close()

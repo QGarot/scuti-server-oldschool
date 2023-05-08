@@ -28,15 +28,28 @@ class User:
 
     def disconnect(self) -> None:
         """
-        Disconnect user from the client
+        Disconnect (online/authenticated) user by closing the socket.
         :return:
         """
-        # self.socket.close()
-        # TODO: fix "OSError: [WinError 10038]" when socket is closed!
-        pass
+        print(self.get_details().get_username() + " is disconnected!")
+        self.get_socket().close()
+
+    def delete_session_client(self) -> None:
+        """
+        Disconnect client by closing the socket
+        :return:
+        """
+        print("Client disconnected!")
+        self.get_socket().close()
 
     def get_details(self) -> UserDetails:
         """
         :return: user details
         """
         return self.details
+
+    def get_socket(self):
+        """
+        :return: socket
+        """
+        return self.socket

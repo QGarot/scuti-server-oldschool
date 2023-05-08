@@ -19,3 +19,4 @@ class Server(dispatcher):
     def handle_accepted(self, sock, addr):
         print("New connection from " + str(addr[0]))
         self.handler = Connection(sock)
+        self.handler.new_session()

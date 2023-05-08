@@ -15,4 +15,4 @@ class SSOTicketMessageEvent(MessageEvent):
             UserManager.get_instance().connect_user(user)
             user.send(AuthenticationOKMessageComposer())
         else:
-            user.disconnect()
+            UserManager.get_instance().disconnect(user)

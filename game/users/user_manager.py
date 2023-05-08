@@ -14,6 +14,8 @@ class UserManager:
         self.users = []
         # DAO
         self.user_dao = None
+        # list of clients
+        self.connections = []
 
     @classmethod
     def get_instance(cls) -> Self | None:
@@ -78,9 +80,19 @@ class UserManager:
         else:
             return None
 
+    def get_user_by_socket(self, socket) -> User | None:
+        """
+        :param socket
+        :return: user corresponding to this socket
+        """
+        for user in self.connections:
+            if user.get_socket() == socket:
+                return user
+        return None
+
     def connect_user(self, user: User) -> None:
         """
-        Add user to the list of users connected
+        Add user to the list of users connected and log him
         :param user:
         :return:
         """
@@ -96,3 +108,29 @@ class UserManager:
         """
         for user in self.get_users():
             user.send(server_message)
+
+    def new_session(self, socket):
+        """
+        Add a new client to connections collection
+        :param socket:
+        :return:
+        """
+        connection = User(socket)
+        self.connections.append(connection)
+
+    def disconnect(self, user: User) -> None:
+        """
+        Remove user from users online and clients collections, and disconnect him
+        :param user:
+        :return:
+        """
+        self.connections.remove(user)
+
+        if user in self.get_users():
+            self.users.remove(user)
+            user.disconnect()
+        else:
+            user.delete_session_client()
+
+
+
