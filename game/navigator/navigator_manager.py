@@ -32,8 +32,7 @@ class NavigatorManager:
         Load all public rooms saved in database
         :return:
         """
-        for public_room in self.get_navigator_dao().get_public_rooms():
-            self.public_rooms.append(public_room)
+        self.public_rooms = self.get_navigator_dao().get_public_rooms()
 
     def get_public_rooms(self) -> list[PublicRoom]:
         """

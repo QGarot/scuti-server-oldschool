@@ -54,8 +54,7 @@ class RoomModelManager:
         Load all room models registered in the database
         :return:
         """
-        for model in self.get_room_model_dao().get_models():
-            self.add_model(model)
+        self.models = self.get_room_model_dao().get_models()
 
     def get_model_by_name(self, name: str) -> RoomModel | None:
         """

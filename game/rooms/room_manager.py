@@ -40,8 +40,7 @@ class RoomManager:
         Load all rooms registered in the database
         :return:
         """
-        for room in self.get_room_dao().get_rooms():
-            self.rooms.append(room)
+        self.rooms = self.get_room_dao().get_rooms()
 
     def get_rooms_map(self) -> list[Room]:
         """
