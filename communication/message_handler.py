@@ -1,4 +1,5 @@
 import utils.logger
+from communication.incoming.catalog.get_catalog_index_event import GetCatalogIndexEvent
 from communication.incoming.handshake.info_retrieve_message_event import InfoRetrieveMessageEvent
 from communication.incoming.handshake.sso_ticket_message_event import SSOTicketMessageEvent
 from communication.incoming.navigator.get_official_rooms_message_event import GetOfficialRoomsMessageEvent
@@ -24,7 +25,8 @@ incoming = {
     52: ChatMessageEvent(),
     8: GetCreditsInfoEvent(),
     380: GetOfficialRoomsMessageEvent(),
-    512: DisconnectMessageEvent()
+    512: DisconnectMessageEvent(),
+    101: GetCatalogIndexEvent()
 }
 
 

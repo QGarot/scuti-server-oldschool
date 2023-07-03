@@ -1,4 +1,5 @@
 from database.database import Database
+from game.catalog.catalog_manager import CatalogManager
 from game.navigator.navigator_manager import NavigatorManager
 from game.rooms.models.room_model_manager import RoomModelManager
 from game.rooms.room_manager import RoomManager
@@ -25,6 +26,10 @@ RoomManager.get_instance().load_rooms()
 NavigatorManager.get_instance()
 NavigatorManager.get_instance().set_dao(db)
 NavigatorManager.get_instance().load_public_rooms()
+# Catalog
+CatalogManager.get_instance()
+CatalogManager.get_instance().set_dao(db)
+CatalogManager.get_instance().load_pages()
 
 # ~~~~~~~ Server ~~~~~~~
 server = Server("127.0.0.1", 35000)

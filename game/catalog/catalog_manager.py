@@ -2,6 +2,7 @@ from typing import Self
 
 from database.dao.catalog_dao import CatalogDao
 from database.database import Database
+from game.catalog.catalog_page import CatalogPage
 
 
 class CatalogManager:
@@ -36,12 +37,16 @@ class CatalogManager:
         """
         return self.catalog_dao
 
+    def get_catalog_pages(self) -> list[CatalogPage]:
+        """
+        Get pages loaded
+        :return:
+        """
+        return self.catalog_pages_list
+
     def load_pages(self) -> None:
         """
         Load all catalog pages registered in the database
         :return:
         """
         self.catalog_pages_list = self.get_dao().get_catalog_pages()
-
-
-
