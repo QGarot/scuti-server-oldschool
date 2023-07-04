@@ -9,7 +9,7 @@ class MOTDNotificationMessageComposer(MessageComposer):
 
     def compose(self):
         self.response.append_int32(5)
-        self.response.append_string_with_break("Welcome to Scuti Oldschool!")
+        self.response.append_string_with_break("Welcome to the oldschool version of Scuti •")
         self.response.append_string_with_break("")
         self.response.append_string_with_break("")
         self.response.append_string_with_break("")

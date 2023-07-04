@@ -3,6 +3,7 @@ from communication.outgoing.handshake.auth_ok_message_composer import Authentica
 from game.users.user import User
 from game.users.user_manager import UserManager
 from network.messages.client_message import ClientMessage
+from communication.outgoing.users.motd_notification_message_composer import MOTDNotificationMessageComposer
 
 
 class SSOTicketMessageEvent(MessageEvent):
@@ -14,5 +15,6 @@ class SSOTicketMessageEvent(MessageEvent):
         if UserManager.get_instance().get_dao().login_sso(user, sso):
             UserManager.get_instance().connect_user(user)
             user.send(AuthenticationOKMessageComposer())
+            user.send(MOTDNotificationMessageComposer())
         else:
             UserManager.get_instance().disconnect(user)
