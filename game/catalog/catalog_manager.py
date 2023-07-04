@@ -50,3 +50,15 @@ class CatalogManager:
         :return:
         """
         self.catalog_pages_list = self.get_dao().get_catalog_pages()
+
+    def get_catalog_page_by_id(self, page_id: int) -> CatalogPage | None:
+        """
+
+        :param page_id:
+        :return:
+        """
+        for catalog_page in self.get_catalog_pages():
+            if catalog_page.get_id() == page_id:
+                return catalog_page
+        return None
+        
