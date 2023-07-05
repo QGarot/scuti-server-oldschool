@@ -1,12 +1,12 @@
 from communication.outgoing.message_composer import MessageComposer
-from game.catalog.catalog_manager import CatalogManager
+from game.catalog.catalog_page import CatalogPage
 from network.messages.server_message import ServerMessage
 
 
 class CatalogPageMessageComposer(MessageComposer):
-    def __init__(self, page_id: int):
+    def __init__(self, page: CatalogPage):
         self.response = ServerMessage(127)
-        self.page = CatalogManager.get_instance().get_catalog_page_by_id(page_id)
+        self.page = page
 
     def get_response(self) -> ServerMessage:
         return self.response
@@ -29,7 +29,7 @@ class CatalogPageMessageComposer(MessageComposer):
             self.response.append_string_with_break("Code crédits/pixels/coquillages")
             self.response.append_string_with_break("")
             self.response.append_string_with_break("Lire plus >> ")
-            self.response.append_string_with_break("magic.credits")
+            self.response.append_string_with_break("")  # magic.credits
         elif page_layout == "club_buy":
             self.response.append_string_with_break("club_buy")  # layout
             self.response.append_int32(1)
