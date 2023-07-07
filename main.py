@@ -30,6 +30,7 @@ NavigatorManager.get_instance().load_public_rooms()
 CatalogManager.get_instance()
 CatalogManager.get_instance().set_dao(db)
 CatalogManager.get_instance().load_pages()
+CatalogManager.get_instance().load_catalog_items()
 
 # ~~~~~~~ Server ~~~~~~~
 server = Server("127.0.0.1", 35000)

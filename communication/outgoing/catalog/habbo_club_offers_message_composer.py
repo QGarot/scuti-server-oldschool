@@ -12,7 +12,7 @@ class HabboClubOffersMessageComposer(MessageComposer):
     def compose(self) -> None:
         self.response.append_int32(4)  # Number of offers
 
-        self.response.append_int32(4533)  # offer id
+        self.response.append_int32(4533)  # offer id (catalog_item id)
         self.response.append_string_with_break("HABBO_CLUB_BASIC_1_MONTH")  # Product code
         self.response.append_int32(15)  # Cost
         self.response.append_int32(0)  # Upgraded?
