@@ -24,7 +24,7 @@ class ClientMessage:
 
         buffer = bytearray(bytes)
         index = 0
-        for i in range(self.pointer, self.pointer + bytes):
+        for i in range(self.pointer, bytes):
             buffer[index] = self.body[i]
             index += 1
         return buffer
@@ -60,17 +60,17 @@ class ClientMessage:
 
         bzData = self.plain_read_bytes(6)
         num2 = utils.wire_encoding.decode_int32(bzData)
-        self.pointer = self.pointer + 6
-        return num2
+        self.pointer = self.pointer + num2[1]
+        return num2[0]
 
     def pop_wired_uint(self):
         return self.pop_wired_int32()
 
-    def read_bytes(self, Bytes):
-        if Bytes > self.remaining_length:
-            Bytes = self.remaining_length
-        buffer = bytearray(Bytes)
-        for i in range(Bytes):
+    def read_bytes(self, bytes):
+        if bytes > self.remaining_length:
+            bytes = self.remaining_length
+        buffer = bytearray(bytes)
+        for i in range(bytes):
             buffer[i] = self.body[self.pointer]
             self.pointer += 1
         return buffer

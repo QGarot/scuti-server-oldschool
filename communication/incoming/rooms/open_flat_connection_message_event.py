@@ -11,7 +11,7 @@ from network.messages.client_message import ClientMessage
 class OpenFlatConnectionMessageEvent(MessageEvent):
     @staticmethod
     def handle(user: User, request: ClientMessage):
-        room_id = request.pop_wired_uint()[0]
+        room_id = request.pop_wired_uint()
         room = RoomManager.get_instance().get_room_by_id(room_id)
         model = RoomModelManager.get_instance().get_model_by_name(room.get_room_data().get_model())
 

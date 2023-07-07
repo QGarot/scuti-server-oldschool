@@ -9,7 +9,7 @@ from network.messages.client_message import ClientMessage
 class GetCatalogPageEvent(MessageEvent):
     @staticmethod
     def handle(user: User, request: ClientMessage) -> None:
-        page_id = request.pop_wired_int32()[0]
+        page_id = request.pop_wired_int32()
         page = CatalogManager.get_instance().get_catalog_page_by_id(page_id)
 
         user.send(CatalogPageMessageComposer(page))
