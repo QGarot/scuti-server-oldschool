@@ -1,13 +1,13 @@
 class CatalogItem:
-    def __init__(self, id: int, page_id: int, item_id: int, name: str, credits_cost: int, pixels_cost: int,
-                 shells_cost: int, amount: int, vip: int, achievement: int, song_id: int, sprite_id: int,
+    def __init__(self, id: int, page_id: int, item_id: int, name: str, credits_cost: int, points_cost: int,
+                 point_type: int, amount: int, vip: int, achievement: int, song_id: int, sprite_id: int,
                  furni_type: str):
         self.id = id
         self.item_id = item_id
         self.name = name
         self.credits_cost = credits_cost
-        self.pixels_cost = pixels_cost
-        self.shells_cost = shells_cost
+        self.points_cost = points_cost
+        self.point_type = point_type
         self.amount = amount
         self.page_id = page_id
         self.vip = vip
@@ -27,11 +27,11 @@ class CatalogItem:
     def get_credits_cost(self) -> int:
         return self.credits_cost
 
-    def get_pixels_cost(self) -> int:
-        return self.pixels_cost
+    def get_points_cost(self) -> int:
+        return self.points_cost
 
-    def get_shells_cost(self) -> int:
-        return self.shells_cost
+    def get_point_type(self) -> int:
+        return self.point_type
 
     def get_amount(self) -> int:
         return self.amount

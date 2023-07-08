@@ -55,8 +55,8 @@ class CatalogPageMessageComposer(MessageComposer):
             self.response.append_string_with_break(item.get_name())
             self.response.append_int32(item.get_credits_cost())
             # TODO: edit SQL structure for activity point type!!
-            self.response.append_int32(0)  # price in activity points
-            self.response.append_int32(0)  # activity point type: 0 for pixels, 4 for shells
+            self.response.append_int32(item.get_points_cost())  # price in activity points
+            self.response.append_int32(item.get_point_type())  # activity point type: 0 for pixels, 4 for shells
             self.response.append_int32(1)
             self.response.append_string_with_break(item.get_furni_type())
             self.response.append_int32(item.get_sprite_id())
