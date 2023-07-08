@@ -19,7 +19,8 @@ class RoomModelDao:
             door_z = model[3]
             door_dir = model[4]
             height_map = model[5]
-            room_model = RoomModel(name, door_x, door_y, int(door_z), door_dir, height_map)
+            club_only = model[6]
+            room_model = RoomModel(name, door_x, door_y, int(door_z), door_dir, height_map, club_only)
             room_models.append(room_model)
 
         return room_models

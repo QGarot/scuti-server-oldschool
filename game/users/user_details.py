@@ -1,44 +1,7 @@
 class UserDetails:
-    def __init__(self):
+    def __init__(self, id: int, username: str, email: str, figure: str, motto: str, sex: str, sso_ticket: str,
+                 rank: int, credits: int, pixels: int, shells: int):
         # Basic info definition
-        self.id = 0
-        self.username = ""
-        self.email = ""
-        self.figure = ""
-        self.motto = ""
-        self.sex = ""
-        self.sso_ticket = ""
-        self.machine_id = None
-        self.rank = 1
-
-        # Currencies
-        self.credits = 0
-        self.pixels = 10
-        self.shells = 3
-
-        # Respect points
-        self.respect = 0
-        self.daily_respect_points = 3
-
-    def fill(self, id: int, username: str, email: str, figure: str, motto: str, sex: str, sso_ticket: str, rank: int,
-             credits: int) -> None:
-        """
-        Fill UserDetails instance with user data
-        :param id:
-        :param username:
-        :param email:
-        :param figure:
-        :param motto:
-        :param sex:
-        :param sso_ticket:
-        :param rank:
-        :param credits:
-        :param pixels:
-        :param shells:
-        :param respect:
-        :param daily_respect_points:
-        :return:
-        """
         self.id = id
         self.username = username
         self.email = email
@@ -46,8 +9,17 @@ class UserDetails:
         self.motto = motto
         self.sex = sex
         self.sso_ticket = sso_ticket
+        self.machine_id = None
         self.rank = rank
+
+        # Currencies
         self.credits = credits
+        self.pixels = pixels
+        self.shells = shells
+
+        # Respect points
+        self.respect = 0
+        self.daily_respect_points = 3
 
     # Getters
     def get_id(self) -> int:

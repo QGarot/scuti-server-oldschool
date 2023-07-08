@@ -21,13 +21,15 @@ BLOCKED = 0
 
 
 class RoomModel:
-    def __init__(self, name: str, door_x: int, door_y: int, door_z: int, door_rotation: int, height_map: str):
+    def __init__(self, name: str, door_x: int, door_y: int, door_z: int, door_rotation: int, height_map: str,
+                 club_only: int):
         self.name = name
         self.door_x = door_x
         self.door_y = door_y
         self.door_z = door_z
         self.door_rotation = door_rotation
         self.height_map = height_map
+        self.club_only = club_only
 
         self.map_size_x = None
         self.map_size_y = None

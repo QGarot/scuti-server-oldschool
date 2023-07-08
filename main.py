@@ -8,7 +8,7 @@ from network.server import Server
 
 print("Scuti Server - Oldschool 1.0")
 # ~~~~~~~ Database ~~~~~~~
-db = Database("localhost", "root", "", "phoenix")
+db = Database("localhost", "root", "", "scuti")
 
 # ~~~~~~~ Managers ~~~~~~~
 # Users
@@ -25,7 +25,7 @@ RoomManager.get_instance().load_rooms()
 # Navigator
 NavigatorManager.get_instance()
 NavigatorManager.get_instance().set_dao(db)
-NavigatorManager.get_instance().load_public_rooms()
+#NavigatorManager.get_instance().load_public_rooms()
 # Catalog
 CatalogManager.get_instance()
 CatalogManager.get_instance().set_dao(db)

@@ -1,28 +1,7 @@
 class RoomData:
-    def __init__(self):
-        self.id = 0
-        self.room_type = ""
-        self.caption = ""
-        self.owner_name = ""
-        self.description = ""
-        self.category = 0
-        self.state = "open"
-        self.users_now = 0
-        self.users_max = 0
-        self.model_name = "model_a"
-        self.score = 0
-        self.tags = ""
-        self.icon_bg = 0
-        self.icon_fg = 0
-        self.icon_items = ""
-        self.password = ""
-        self.wallpaper = ""
-        self.floor = ""
-        self.landscape = ""
-
-    def fill(self, id: int, room_type: str, caption: str, owner_name: str, description: str, category: int,
+    def __init__(self, id: int, room_type: str, caption: str, owner_name: str, description: str, category: int,
              state: str, users_now: int, users_max: int, model_name: str, score: int, tags: str, icon_bg: int, icon_fg: int, icon_items: str,
-             password: str, wallpaper: str, floor: str, landscape: str) -> None:
+             password: str, wallpaper: str, floor: str, landscape: str):
         self.id = id
         self.room_type = room_type
         self.caption = caption

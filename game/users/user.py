@@ -5,7 +5,7 @@ from game.users.user_details import UserDetails
 class User:
     def __init__(self, socket):
         self.socket = socket
-        self.details = UserDetails()
+        self.details = None
 
         # TODO: create a RoomUser class! it's better < RoomEntity
         self.room_id = None
@@ -47,6 +47,9 @@ class User:
         :return: user details
         """
         return self.details
+
+    def set_details(self, details: UserDetails):
+        self.details = details
 
     def get_socket(self):
         """
