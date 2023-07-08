@@ -22,16 +22,13 @@ class CatalogPageMessageComposer(MessageComposer):
                 self.response.append_string_with_break(self.page.get_layout_headline())
                 self.response.append_string_with_break(self.page.get_layout_teaser())
                 self.response.append_string_with_break("")  # ?
-                self.response.append_int32(9)
+                self.response.append_int32(6)
                 self.response.append_string_with_break(self.page.get_text1())
                 self.response.append_string_with_break(self.page.get_text_link_desc())
                 self.response.append_string_with_break(self.page.get_text2())
                 self.response.append_string_with_break(self.page.get_text_details())
-                self.response.append_string_with_break(self.page.get_text_link_page())
-                self.response.append_string_with_break("Code crédits/pixels/coquillages")
-                self.response.append_string_with_break("")
-                self.response.append_string_with_break("Lire plus >> ")
-                self.response.append_string_with_break("")  # magic.credits
+                self.response.append_string_with_break(self.page.get_text_teaser())
+                self.response.append_string_with_break("Code: ")
             case "club_buy":
                 self.response.append_string_with_break(page_layout)  # layout
                 self.response.append_int32(1)
