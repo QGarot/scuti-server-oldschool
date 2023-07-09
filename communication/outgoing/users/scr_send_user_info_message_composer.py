@@ -1,0 +1,25 @@
+from communication.outgoing.message_composer import MessageComposer
+from game.users.components.club_subscription_component import ClubSubscriptionComponent
+from network.messages.server_message import ServerMessage
+
+
+class ScrSendUserInfoMessageComposer(MessageComposer):
+    def __init__(self, club_subscription: ClubSubscriptionComponent):
+        self.response = ServerMessage(7)
+        self.club_subscription = club_subscription
+
+    def get_response(self) -> ServerMessage:
+        return self.response
+
+    def compose(self) -> None:
+        self.response.append_string_with_break("habbo_club")
+        self.response.append_int32(self.club_subscription.get_days_left())
+        self.response.append_boolean(True)
+        self.response.append_int32(int(self.club_subscription.get_days_left() / 31))
+        self.response.append_boolean(True)
+        self.response.append_boolean(True)
+        self.response.append_boolean(self.club_subscription.get_subscription_type() == "vip")
+        self.response.append_int32(0)
+        self.response.append_int32(0)
+
+

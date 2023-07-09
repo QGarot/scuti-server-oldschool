@@ -103,6 +103,9 @@ class UserManager:
         :return:
         """
         if user is not None:
+            # Fill user data
+            self.get_dao().fill_subscription(user)
+
             self.users.append(user)
             user.login()
 

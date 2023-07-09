@@ -13,6 +13,7 @@ from communication.incoming.rooms.my_room_search_message_event import MyRoomsSea
 from communication.incoming.rooms.open_flat_connection_message_event import OpenFlatConnectionMessageEvent
 from communication.incoming.users.disconnect_message_event import DisconnectMessageEvent
 from communication.incoming.users.get_credits_info_message_event import GetCreditsInfoEvent
+from communication.incoming.users.scr_get_user_info_message_event import ScrGetUserInfoMessageEvent
 from game.users.user import User
 from communication.incoming.handshake.init_crypto_message_event import InitCryptoMessageEvent
 from network.messages.client_message import ClientMessage
@@ -32,7 +33,8 @@ incoming = {
     101: GetCatalogIndexEvent(),
     102: GetCatalogPageEvent(),
     100: PurchaseFromCatalogEvent(),
-    3030: GetIsOfferGiftableEvent()
+    3030: GetIsOfferGiftableEvent(),
+    26: ScrGetUserInfoMessageEvent()
 
 }
 

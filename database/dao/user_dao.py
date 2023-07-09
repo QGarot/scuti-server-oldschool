@@ -36,4 +36,16 @@ class UserDao:
 
         return success
 
+    def fill_subscription(self, user: User):
+        user_id = user.get_details().get_id()
+        req = self.db.get("SELECT subscription, end FROM users_subscriptions WHERE user_id = " + str(user_id))
+        if len(req) == 1:
+            user_subscription = req[0]
+            user_subscription_type = user_subscription[0]
+            user_subscription_end = user_subscription[1]
+
+            user.get_subscription().set_subscription_type(user_subscription_type)
+            user.get_subscription().set_expiration(user_subscription_end)
+        else:
+            print("No subscription found with that user id!")
 
