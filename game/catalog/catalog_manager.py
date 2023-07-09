@@ -79,3 +79,9 @@ class CatalogManager:
             if catalog_item.get_page_id() == page_id:
                 res.append(catalog_item)
         return res
+
+    def get_catalog_item_by_id(self, item_id: int) -> CatalogItem | None:
+        for catalog_item in self.get_catalog_items():
+            if catalog_item.get_item_id() == item_id:
+                return catalog_item
+        return None

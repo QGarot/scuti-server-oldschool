@@ -36,7 +36,7 @@ class UserDao:
 
         return success
 
-    def fill_subscription(self, user: User):
+    def fill_subscription(self, user: User) -> None:
         user_id = user.get_details().get_id()
         req = self.db.get("SELECT subscription, end FROM users_subscriptions WHERE user_id = " + str(user_id))
         if len(req) == 1:
@@ -49,3 +49,23 @@ class UserDao:
         else:
             print("No subscription found with that user id!")
 
+    def save_details(self, user: User) -> None:
+        self.db.update(table_name="users",
+                       attributes={
+                           "username": user.get_details().get_username(),
+                           "rank": user.get_details().get_rank(),
+                           "credits": user.get_details().get_credits(),
+                           "pixels": user.get_details().get_pixels(),
+                           "shells": user.get_details().get_shells(),
+                           "look": user.get_details().get_figure(),
+                           "motto": user.get_details().get_motto()
+                       },
+                       sql_condition="id = " + str(user.get_details().get_id()))
+
+    def save_subscription(self, user: User) -> None:
+        self.db.update(table_name="users_subscriptions",
+                       attributes={
+                           "subscription": user.get_subscription().get_subscription_type(),
+                           "end": user.get_subscription().get_expiration()
+                       },
+                       sql_condition="user_id = " + str(user.get_details().get_id()))

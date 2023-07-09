@@ -4,7 +4,7 @@ from utils.date import seconds_to_days
 
 class ClubSubscriptionComponent:
     def __init__(self):
-        self.subscription_type = ""  # "vip" or "habbo_club"
+        self.subscription_type = ""  # "vip" or "hc"
         self.expiration = 0
 
     def get_subscription_type(self) -> str:
@@ -29,3 +29,6 @@ class ClubSubscriptionComponent:
 
     def set_expiration(self, end: int) -> None:
         self.expiration = end
+
+    def get_expiration(self) -> int:
+        return self.expiration

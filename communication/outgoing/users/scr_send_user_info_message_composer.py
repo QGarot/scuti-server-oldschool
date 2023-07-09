@@ -15,7 +15,7 @@ class ScrSendUserInfoMessageComposer(MessageComposer):
         self.response.append_string_with_break("habbo_club")
         self.response.append_int32(self.club_subscription.get_days_left())
         self.response.append_boolean(True)
-        self.response.append_int32(int(self.club_subscription.get_days_left() / 31))
+        self.response.append_int32(0)
         self.response.append_boolean(True)
         self.response.append_boolean(True)
         self.response.append_boolean(self.club_subscription.get_subscription_type() == "vip")

@@ -98,7 +98,7 @@ class UserManager:
 
     def connect_user(self, user: User) -> None:
         """
-        Add user to the list of users connected and log him
+        Load data user
         :param user:
         :return:
         """
@@ -140,6 +140,3 @@ class UserManager:
             user.disconnect()
         else:
             user.delete_session_client()
-
-
-

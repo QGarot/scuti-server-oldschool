@@ -1,5 +1,6 @@
 from communication.outgoing.message_composer import MessageComposer
 from network.messages.server_message import ServerMessage
+from utils.date import get_future_date_in
 
 
 class HabboClubOffersMessageComposer(MessageComposer):
@@ -19,9 +20,10 @@ class HabboClubOffersMessageComposer(MessageComposer):
         self.response.append_int32(0)  # Is vip?
         self.response.append_int32(1)  # Periods
         self.response.append_int32(31)  # Days left after purchase
-        self.response.append_int32(2023)  # YEAR
-        self.response.append_int32(8)  # MONTH
-        self.response.append_int32(5)  # DAY
+        d = get_future_date_in(days=31)
+        self.response.append_int32(d[0])  # YEAR
+        self.response.append_int32(d[1])  # MONTH
+        self.response.append_int32(d[2])  # DAY
 
         self.response.append_int32(4534)  # offer id
         self.response.append_string_with_break("HABBO_CLUB_BASIC_3_MONTHS")  # Product code
@@ -30,9 +32,10 @@ class HabboClubOffersMessageComposer(MessageComposer):
         self.response.append_int32(0)  # Is vip?
         self.response.append_int32(3)  # Periods
         self.response.append_int32(93)  # Days of HabboClub
-        self.response.append_int32(1)  # YEAR
-        self.response.append_int32(1)  # MONTH
-        self.response.append_int32(1)  # DAY
+        d = get_future_date_in(days=93)
+        self.response.append_int32(d[0])  # YEAR
+        self.response.append_int32(d[1])  # MONTH
+        self.response.append_int32(d[2])  # DAY
 
         self.response.append_int32(4535)  # offer id
         self.response.append_string_with_break("HABBO_CLUB_VIP_1_MONTH")  # Product code
@@ -40,10 +43,11 @@ class HabboClubOffersMessageComposer(MessageComposer):
         self.response.append_int32(0)  # Upgraded?
         self.response.append_int32(1)  # Is vip?
         self.response.append_int32(1)  # Periods
-        self.response.append_int32(101)  # Days of HabboClub
-        self.response.append_int32(1)  # YEAR
-        self.response.append_int32(1)  # MONTH
-        self.response.append_int32(1)  # DAY
+        self.response.append_int32(31)  # Days of HabboClub
+        d = get_future_date_in(days=31)
+        self.response.append_int32(d[0])  # YEAR
+        self.response.append_int32(d[1])  # MONTH
+        self.response.append_int32(d[2])  # DAY
 
         self.response.append_int32(4536)  # offer id
         self.response.append_string_with_break("HABBO_CLUB_VIP_3_MONTHS")  # Product code
@@ -51,7 +55,8 @@ class HabboClubOffersMessageComposer(MessageComposer):
         self.response.append_int32(0)  # Upgraded?
         self.response.append_int32(1)  # Is vip?
         self.response.append_int32(3)  # Periods
-        self.response.append_int32(163)  # Days of HabboClub
-        self.response.append_int32(1)  # YEAR
-        self.response.append_int32(1)  # MONTH
-        self.response.append_int32(1)  # DAY
+        self.response.append_int32(93)  # Days of HabboClub
+        d = get_future_date_in(days=93)
+        self.response.append_int32(d[0])  # YEAR
+        self.response.append_int32(d[1])  # MONTH
+        self.response.append_int32(d[2])  # DAY
