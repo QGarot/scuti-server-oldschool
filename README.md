@@ -9,27 +9,37 @@ A Habbo server written in Python, compatible with [R63A](https://github.com/QGar
 
 ### Features
 
+- Handshake
+  - Login (SSO ticket)
 - Navigator
   - Public rooms
   - Personal rooms
   - Complete room description
+- Catalog
+  - Pages
+  - Items
+  - VIP/HabboClub purchase
+  - Effect preview
+  - Layout
 - Room
   - Room model
   - Room engine
   - Room user information (avatar, motto...)
   - Simple chat
-- Login
-- Credits/Pixels/Shells balance
-- Motd information
-
-### Packets (soon...)
-
-- Incoming
-- Outgoing
+- User
+  - Credits/Pixels/Shells balance
+  - Club subscription days left
+  - Motd information
 
 ### Some screens
 
-![alt text](https://i.goopics.net/7wteg6.png)
+![](https://i.goopics.net/113h3u.png)
+![](https://i.goopics.net/4vn1s3.png)
+![](https://i.goopics.net/rebos8.png)
+![](https://i.goopics.net/ggefv4.png)
+![](https://i.goopics.net/8erlf3.png)
+![](https://i.goopics.net/2oxuud.png)
+![](https://i.goopics.net/kn2q97.png)
 
 
 ### Credits
