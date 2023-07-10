@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta
+from math import ceil
 
 
-def days_in_hours(days: int) -> int:
+def days_to_hours(days: int) -> int:
     return days * 24
 
 
@@ -14,7 +15,7 @@ def minutes_to_seconds(minutes: int) -> int:
 
 
 def seconds_to_days(seconds: int) -> int:
-    return int(seconds / (60 * 60 * 24))
+    return ceil(seconds / (60 * 60 * 24))
 
 
 def get_current_date() -> list:
