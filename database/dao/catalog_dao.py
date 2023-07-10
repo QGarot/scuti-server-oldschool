@@ -8,20 +8,18 @@ class CatalogDao:
         self.db = db
 
     def get_catalog_items(self) -> list[CatalogItem]:
-        req = self.db.get("SELECT catalog_items.id,"
-                          "catalog_items.page_id,"
-                          "catalog_items.item_id,"
-                          "catalog_items.catalog_name,"
-                          "catalog_items.cost_credits,"
-                          "catalog_items.cost_points,"
-                          "catalog_items.point_type,"
-                          "catalog_items.amount,"
-                          "catalog_items.vip,"
-                          "catalog_items.achievement,"
-                          "catalog_items.song_id,"
-                          "furnitures.sprite_id,"
-                          "furnitures.type"
-                          " FROM catalog_items JOIN furnitures ON catalog_items.item_id = furnitures.id;")
+        req = self.db.get("SELECT id,"
+                          "page_id,"
+                          "item_id,"
+                          "catalog_name,"
+                          "cost_credits,"
+                          "cost_points,"
+                          "point_type,"
+                          "amount,"
+                          "vip,"
+                          "achievement,"
+                          "song_id"
+                          " FROM catalog_items")
         res = []
         for catalog_item in req:
             id = catalog_item[0]
@@ -35,10 +33,8 @@ class CatalogDao:
             vip = catalog_item[8]
             achievement = catalog_item[9]
             song_id = catalog_item[10]
-            sprite_id = catalog_item[11]
-            furni_type = catalog_item[12]
             res.append(CatalogItem(id, page_id, item_id, catalog_name, cost_credits, cost_points, point_type, amount,
-                                   vip, achievement, song_id, sprite_id, furni_type))
+                                   vip, achievement, song_id))
         return res
 
     def get_catalog_pages(self) -> list[CatalogPage]:

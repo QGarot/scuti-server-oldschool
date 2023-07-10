@@ -1,7 +1,6 @@
 class CatalogItem:
     def __init__(self, id: int, page_id: int, item_id: int, name: str, credits_cost: int, points_cost: int,
-                 point_type: int, amount: int, vip: int, achievement: int, song_id: int, sprite_id: int,
-                 furni_type: str):
+                 point_type: int, amount: int, vip: int, achievement: int, song_id: int):
         self.id = id
         self.item_id = item_id
         self.name = name
@@ -13,10 +12,6 @@ class CatalogItem:
         self.vip = vip
         self.achievement = achievement
         self.song_id = song_id
-
-        # extra...
-        self.sprite_id = sprite_id
-        self.type = furni_type
 
     def get_id(self) -> int:
         return self.id
@@ -50,9 +45,3 @@ class CatalogItem:
 
     def get_song_id(self) -> int:
         return self.song_id
-
-    def get_sprite_id(self) -> int:
-        return self.sprite_id
-
-    def get_furni_type(self) -> str:
-        return self.type

@@ -1,6 +1,7 @@
 from communication.outgoing.message_composer import MessageComposer
 from game.catalog.catalog_manager import CatalogManager
 from game.catalog.catalog_page import CatalogPage
+from game.furnitures.furniture_manager import FurnitureManager
 from network.messages.server_message import ServerMessage
 
 
@@ -55,8 +56,10 @@ class CatalogPageMessageComposer(MessageComposer):
             self.response.append_int32(item.get_points_cost())  # price in activity points
             self.response.append_int32(item.get_point_type())  # activity point type: 0 for pixels, 4 for shells
             self.response.append_int32(1)
-            self.response.append_string_with_break(item.get_furni_type())
-            self.response.append_int32(item.get_sprite_id())
+
+            furniture = FurnitureManager.get_instance().get_furniture_by_id(furniture_id=item.get_item_id())
+            self.response.append_string_with_break(furniture.get_type())
+            self.response.append_int32(furniture.get_sprite_id())
             self.response.append_string_with_break("")  # Extra data
             self.response.append_int32(item.get_amount())
             self.response.append_int32(-1)
