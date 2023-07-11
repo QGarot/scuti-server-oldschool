@@ -1,10 +1,10 @@
 from communication.outgoing.message_composer import MessageComposer
-from game.users.components.club_subscription_component import ClubSubscriptionComponent
+from game.users.components.club_subscription import ClubSubscription
 from network.messages.server_message import ServerMessage
 
 
 class ScrSendUserInfoMessageComposer(MessageComposer):
-    def __init__(self, club_subscription: ClubSubscriptionComponent):
+    def __init__(self, club_subscription: ClubSubscription):
         self.response = ServerMessage(7)
         self.club_subscription = club_subscription
 

@@ -2,7 +2,7 @@ import time
 from utils.date import seconds_to_days
 
 
-class ClubSubscriptionComponent:
+class ClubSubscription:
     def __init__(self):
         self.subscription_type = ""  # "vip" or "hc"
         self.expiration = 0

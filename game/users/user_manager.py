@@ -2,7 +2,7 @@ from communication.outgoing.message_composer import MessageComposer
 from database.database import Database
 from game.users.user import User
 from database.dao.user_dao import UserDao
-from game.users.user_details import UserDetails
+from game.users.components.user_details import UserDetails
 from typing import Self
 
 

@@ -1,13 +1,11 @@
 from communication.outgoing.message_composer import MessageComposer
-from game.users.components.club_subscription_component import ClubSubscriptionComponent
-from game.users.user_details import UserDetails
+from game.users.components.club_subscription import ClubSubscription
+from game.users.components.user_details import UserDetails
 
 
 class User:
     def __init__(self, socket):
         self.socket = socket
-
-        self.details = None
 
         # TODO: create a RoomUser class! it's better < RoomEntity
         self.room_id = None
@@ -16,7 +14,8 @@ class User:
         self.pos_z = None
 
         # Components
-        self.club_subscription_component = ClubSubscriptionComponent()
+        self.club_subscription_component = ClubSubscription()
+        self.details = UserDetails()
 
     def send(self, server_message: MessageComposer) -> None:
         """
@@ -53,11 +52,8 @@ class User:
         """
         return self.details
 
-    def get_subscription(self) -> ClubSubscriptionComponent:
+    def get_subscription(self) -> ClubSubscription:
         return self.club_subscription_component
-
-    def set_details(self, details: UserDetails):
-        self.details = details
 
     def get_socket(self):
         """

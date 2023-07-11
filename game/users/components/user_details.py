@@ -1,5 +1,26 @@
 class UserDetails:
-    def __init__(self, id: int, username: str, email: str, figure: str, motto: str, sex: str, sso_ticket: str,
+    def __init__(self):
+        # Basic info definition
+        self.id = None
+        self.username = None
+        self.email = None
+        self.figure = None
+        self.motto = None
+        self.sex = None
+        self.sso_ticket = None
+        self.machine_id = None
+        self.rank = None
+
+        # Currencies
+        self.credits = None
+        self.pixels = None
+        self.shells = None
+
+        # Respect points
+        self.respect = None
+        self.daily_respect_points = None
+
+    def fill(self, id: int, username: str, email: str, figure: str, motto: str, sex: str, sso_ticket: str,
                  rank: int, credits: int, pixels: int, shells: int):
         # Basic info definition
         self.id = id

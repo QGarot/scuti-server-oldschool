@@ -1,7 +1,6 @@
 import communication.outgoing.header
 from communication.outgoing.message_composer import MessageComposer
 from game.users.user import User
-from game.users.user_details import UserDetails
 from network.messages.server_message import ServerMessage
 
 
