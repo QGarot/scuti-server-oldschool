@@ -4,11 +4,10 @@ from database.dao.catalog_dao import CatalogDao
 from database.database import Database
 from game.catalog.catalog_item import CatalogItem
 from game.catalog.catalog_page import CatalogPage
+from game.manager.manager import Manager
 
 
-class CatalogManager:
-    instance = None
-
+class CatalogManager(Manager):
     def __init__(self):
         self.catalog_pages_list = []
         self.catalog_items_list = []

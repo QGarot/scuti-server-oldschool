@@ -3,11 +3,10 @@ from typing import Self
 from database.dao.furniture_dao import FurnitureDao
 from database.database import Database
 from game.furnitures.furniture import Furniture
+from game.manager.manager import Manager
 
 
-class FurnitureManager:
-    instance = None
-
+class FurnitureManager(Manager):
     def __init__(self):
         self.furnitures = []
         self.furnitures_dao = None

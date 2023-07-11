@@ -2,12 +2,11 @@ from typing import Self
 
 from database.dao.room_model_dao import RoomModelDao
 from database.database import Database
+from game.manager.manager import Manager
 from game.rooms.models.room_model import RoomModel
 
 
-class RoomModelManager:
-    instance = None
-
+class RoomModelManager(Manager):
     def __init__(self):
         self.models = []
         self.room_model_dao = None
@@ -29,7 +28,7 @@ class RoomModelManager:
         """
         self.room_model_dao = RoomModelDao(db)
 
-    def get_room_model_dao(self) -> RoomModelDao:
+    def get_dao(self) -> RoomModelDao:
         """
         :return: room model dao
         """
@@ -54,7 +53,7 @@ class RoomModelManager:
         Load all room models registered in the database
         :return:
         """
-        self.models = self.get_room_model_dao().get_models()
+        self.models = self.get_dao().get_models()
 
     def get_model_by_name(self, name: str) -> RoomModel | None:
         """

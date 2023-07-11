@@ -1,14 +1,13 @@
 from communication.outgoing.message_composer import MessageComposer
 from database.database import Database
+from game.manager.manager import Manager
 from game.users.user import User
 from database.dao.user_dao import UserDao
 from game.users.components.user_details import UserDetails
 from typing import Self
 
 
-class UserManager:
-    instance = None
-
+class UserManager(Manager):
     def __init__(self):
         # list of users online
         self.users = []
