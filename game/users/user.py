@@ -1,4 +1,5 @@
 from communication.outgoing.message_composer import MessageComposer
+from communication.outgoing.notifications.habbo_broadcast_message_composer import HabboBroadcastMessageComposer
 from game.users.components.club_subscription import ClubSubscription
 from game.users.components.user_details import UserDetails
 
@@ -26,6 +27,9 @@ class User:
         server_message.compose()
         self.socket.send(bytearray(server_message.get_response().get_bytes()))
         print(type(server_message).__name__ + " sent!")
+
+    def send_alert(self, message: str) -> None:
+        self.send(HabboBroadcastMessageComposer(message))
 
     def login(self):
         print(self.get_details().get_username() + " is connected!")

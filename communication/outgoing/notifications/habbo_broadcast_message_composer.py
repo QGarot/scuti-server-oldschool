@@ -3,7 +3,7 @@ from network.messages.server_message import ServerMessage
 
 
 class HabboBroadcastMessageComposer(MessageComposer):
-    def __init__(self, message: str, url: str = None):
+    def __init__(self, message: str):
         self.response = ServerMessage(139)
         self.message = message
 
