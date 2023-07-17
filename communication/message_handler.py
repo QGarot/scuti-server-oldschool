@@ -13,6 +13,7 @@ from communication.incoming.navigator.my_rooms_search_message_event import MyRoo
 from communication.incoming.rooms.session.open_flat_connection_message_event import OpenFlatConnectionMessageEvent
 from communication.incoming.handshake.disconnect_message_event import DisconnectMessageEvent
 from communication.incoming.inventory.purse.get_credits_info_message_event import GetCreditsInfoEvent
+from communication.incoming.tracking.event_log_message_event import EventLogMessageEvent
 from communication.incoming.users.scr_get_user_info_message_event import ScrGetUserInfoMessageEvent
 from game.users.user import User
 from communication.incoming.handshake.init_crypto_message_event import InitCryptoMessageEvent
@@ -34,7 +35,8 @@ incoming = {
     102: GetCatalogPageEvent(),
     100: PurchaseFromCatalogEvent(),
     3030: GetIsOfferGiftableEvent(),
-    26: ScrGetUserInfoMessageEvent()
+    26: ScrGetUserInfoMessageEvent(),
+    482: EventLogMessageEvent()
 
 }
 

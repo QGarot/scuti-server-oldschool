@@ -1,6 +1,5 @@
 from communication.incoming.message_event import MessageEvent
-from communication.outgoing.rooms.flat_created_message_composer import FlatCreatedMessageComposer
-from communication.outgoing.rooms.height_map_message_composer import HeightMapMessageComposer
+from communication.outgoing.navigator.flat_created_message_composer import FlatCreatedMessageComposer
 from game.users.user import User
 from network.messages.client_message import ClientMessage
 

@@ -1,7 +1,7 @@
 from communication.incoming.message_event import MessageEvent
 from communication.outgoing.moderator.mod_message_composer import ModMessageComposer
 from communication.outgoing.notifications.habbo_broadcast_message_composer import HabboBroadcastMessageComposer
-from communication.outgoing.rooms.chat_message_composer import ChatMessageComposer
+from communication.outgoing.rooms.chat.chat_message_composer import ChatMessageComposer
 from game.users.user import User
 from network.messages.client_message import ClientMessage
 

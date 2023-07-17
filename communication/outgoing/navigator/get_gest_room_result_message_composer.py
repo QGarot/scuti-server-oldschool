@@ -3,7 +3,7 @@ from network.messages.server_message import ServerMessage
 import communication.outgoing.header
 
 
-class GetGuestRoomResultMessageEvent(MessageComposer):
+class GetGuestRoomResultMessageComposer(MessageComposer):
     def __init__(self):
         self.response = ServerMessage(communication.outgoing.header.GetGuestRoomResultMessageEvent)
 

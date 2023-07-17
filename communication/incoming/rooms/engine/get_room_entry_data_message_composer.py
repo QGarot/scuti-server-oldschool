@@ -1,9 +1,9 @@
 from communication.incoming.message_event import MessageEvent
-from communication.outgoing.rooms.height_map_message_composer import HeightMapMessageComposer, \
+from communication.outgoing.rooms.engine.height_map_message_composer import HeightMapMessageComposer, \
     FloorHeightMapMessageComposer
-from communication.outgoing.rooms.room_entry_info_message_composer import RoomEntryInfoMessageComposer
-from communication.outgoing.rooms.room_visualization_settings_message_composer import RoomVisualizationSettingsComposer
-from communication.outgoing.rooms.users_message_composer import UsersMessageComposer
+from communication.outgoing.rooms.engine.room_entry_info_message_composer import RoomEntryInfoMessageComposer
+from communication.outgoing.rooms.engine.room_visualization_settings_message_composer import RoomVisualizationSettingsComposer
+from communication.outgoing.rooms.engine.users_message_composer import UsersMessageComposer
 from game.rooms.models.room_model_manager import RoomModelManager
 from game.rooms.room_manager import RoomManager
 from game.users.user import User
