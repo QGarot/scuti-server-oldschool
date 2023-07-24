@@ -1,3 +1,3 @@
-from scuti import Scuti
+from src.scuti import Scuti
 
 Scuti().run()
